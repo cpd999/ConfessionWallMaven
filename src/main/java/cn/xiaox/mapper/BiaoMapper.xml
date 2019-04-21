@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	<mapper namespace="cn.xiaox.dao.BiaoMapper" >
+	
+	  	   <!-- 查询所有的表白 -->
+		  <select id="findAllBiao"  resultType="cn.xiaox.po.BiaoCustom">
+		  	SELECT * FROM biao
+		  </select>
+		  
+		  <!-- 发表表白 -->
+		  <insert id="addBiao"  parameterType="cn.xiaox.po.Biao">
+		  	insert into biao(uname,pname,neirong) values(#{uname},#{pname},#{neirong})
+		  </insert>
+		
+	</mapper>

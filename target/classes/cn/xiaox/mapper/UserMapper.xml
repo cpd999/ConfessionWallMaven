@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.xiaox.dao.UserMapper" >
+
+	 <!-- 登录 -->
+	  <select id="login" parameterType="cn.xiaox.po.User"  resultType="cn.xiaox.po.UserCustom">
+	  	SELECT * FROM user WHERE userName=#{userName} AND password=#{password} LIMIT 1;
+	  </select>
+	  
+	  <!-- 注册 -->
+	  <insert id="addUser" parameterType="cn.xiaox.po.User">
+	  	insert into user(userName,userNicheng,password) values(#{userName},#{userNicheng},#{password})
+	  </insert>
+	  
+	  <!-- 查询所有用户 -->
+	  <select id="findAllUser" resultType="cn.xiaox.po.UserCustom">
+	  	SELECT * FROM user
+	  </select>
+	  
+	  <!-- 更新信息 -->
+	  <update id="upUserInf" parameterType="cn.xiaox.po.User">
+	  	update User set userNicheng=#{userNicheng},password=#{password} where userId=#{userId}
+	  </update>
+	  
+</mapper>

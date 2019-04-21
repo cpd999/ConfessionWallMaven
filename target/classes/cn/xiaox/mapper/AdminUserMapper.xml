@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.xiaox.dao.AdminUserMapper" >
+	
+	<!-- 管理员登录 -->
+ 	<select id="login" parameterType="cn.xiaox.po.AdminUser" resultType="cn.xiaox.po.AdminUserCustom">
+ 		select * from admin_user where name=#{name} and password=#{password} limit 1
+ 	</select>
+ 	
+ 	<!-- 删除回复 -->
+ 	<delete id="deletehui" parameterType="cn.xiaox.po.Pin">
+ 		DELETE FROM pin WHERE pid =#{pid}
+ 	</delete>
+ 	
+ 	<!-- 删除表白 -->
+ 	<delete id="deletebiao" parameterType="cn.xiaox.po.Biao">
+ 		DELETE FROM biao WHERE nid = #{nid}
+ 	</delete>
+ 	
+</mapper>
